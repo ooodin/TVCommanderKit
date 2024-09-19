@@ -12,6 +12,7 @@ import Starscream
 public protocol TVCommanderDelegate: AnyObject {
     func tvCommanderDidConnect(_ tvCommander: TVCommander)
     func tvCommanderDidDisconnect(_ tvCommander: TVCommander)
+    func tvCommander(_ tvCommander: TVCommander, didUpdateAuthToken authToken: TVAuthToken)
     func tvCommander(_ tvCommander: TVCommander, didUpdateAuthState authStatus: TVAuthStatus)
     func tvCommander(_ tvCommander: TVCommander, didWriteRemoteCommand command: TVRemoteCommand)
     func tvCommander(_ tvCommander: TVCommander, didEncounterError error: TVCommanderError)
@@ -263,6 +264,7 @@ extension TVCommander: TVWebSocketHandlerDelegate {
     
     func webSocketDidReadAuthToken(_ authToken: String) {
         tvConfig.token = authToken
+        delegate?.tvCommander(self, didUpdateAuthToken: authToken)
     }
     
     func webSocketError(_ error: TVCommanderError) {
