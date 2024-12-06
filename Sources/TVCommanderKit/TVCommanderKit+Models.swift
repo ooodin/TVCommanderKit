@@ -216,6 +216,7 @@ public struct TVRemoteCommand: Codable {
 
         /// Enum representing the keys on a TV's remote control
         public enum ControlKey: String, Codable {
+            case home = "KEY_HOME"
             case powerOff = "KEY_POWEROFF"
             case up = "KEY_UP"
             case down = "KEY_DOWN"
