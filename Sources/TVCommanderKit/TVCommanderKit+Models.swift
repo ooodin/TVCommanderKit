@@ -218,6 +218,7 @@ public struct TVRemoteCommand: Codable {
         public enum ControlKey: String, Codable {
             case home = "KEY_HOME"
             case powerOff = "KEY_POWEROFF"
+            case powerToggle = "KEY_POWER"
             case up = "KEY_UP"
             case down = "KEY_DOWN"
             case left = "KEY_LEFT"
